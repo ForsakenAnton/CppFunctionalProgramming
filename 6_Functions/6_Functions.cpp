@@ -163,7 +163,23 @@ void printMatrix(int matrix[][4], int rows, int cols)
 	std::cout << "\n\n";
 }
 
-template<int ROWS, int COLS> 
+template<int ROWS, int COLS>
+void initMatrix(int matrix[ROWS][COLS])
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			matrix[i][j] = std::rand() % (10 - 1) + 1;
+		}
+
+		std::cout << "\n";
+	}
+
+	std::cout << "\n\n";
+}
+
+template<int ROWS, int COLS>
 void printMatrix(int matrix[ROWS][COLS])
 {
 	for (int i = 0; i < ROWS; i++)
