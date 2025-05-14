@@ -82,6 +82,7 @@ void checkIfPointerIsNull(int* p)
 
 int main()
 {
+	// pointers
 	std::cout << "Pointers\n";
 
 	int variable = 42;
@@ -227,6 +228,8 @@ int main()
 
 	printMatrix(pMatrix, rows);
 
+
+
 	// about nullptr and NULL
 	int* p = nullptr;
 
@@ -239,4 +242,8 @@ int main()
 	checkIfPointerIsNull(p);
 	p = nullptr; // NULL; //0;
 	checkIfPointerIsNull(p);
+
+
+
+	// references
 }
