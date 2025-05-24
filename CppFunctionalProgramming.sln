@@ -37,6 +37,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "11_1_DynamicMultyArray", "1
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "11_2_DynamicMultyArray", "11_2_DynamicMultyArray\11_2_DynamicMultyArray.vcxproj", "{CF32D75A-5CD7-41DA-9EF0-98436E261A48}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "11_3_FunctionPointers", "11_3_FunctionPointers\11_3_FunctionPointers.vcxproj", "{D1720569-EA22-461E-951B-2505C41E045F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -181,6 +183,14 @@ Global
 		{CF32D75A-5CD7-41DA-9EF0-98436E261A48}.Release|x64.Build.0 = Release|x64
 		{CF32D75A-5CD7-41DA-9EF0-98436E261A48}.Release|x86.ActiveCfg = Release|Win32
 		{CF32D75A-5CD7-41DA-9EF0-98436E261A48}.Release|x86.Build.0 = Release|Win32
+		{D1720569-EA22-461E-951B-2505C41E045F}.Debug|x64.ActiveCfg = Debug|x64
+		{D1720569-EA22-461E-951B-2505C41E045F}.Debug|x64.Build.0 = Debug|x64
+		{D1720569-EA22-461E-951B-2505C41E045F}.Debug|x86.ActiveCfg = Debug|Win32
+		{D1720569-EA22-461E-951B-2505C41E045F}.Debug|x86.Build.0 = Debug|Win32
+		{D1720569-EA22-461E-951B-2505C41E045F}.Release|x64.ActiveCfg = Release|x64
+		{D1720569-EA22-461E-951B-2505C41E045F}.Release|x64.Build.0 = Release|x64
+		{D1720569-EA22-461E-951B-2505C41E045F}.Release|x86.ActiveCfg = Release|Win32
+		{D1720569-EA22-461E-951B-2505C41E045F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
