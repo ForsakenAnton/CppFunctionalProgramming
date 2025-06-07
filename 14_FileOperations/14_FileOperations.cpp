@@ -1,6 +1,9 @@
 
 #include <iostream>
 #include <sstream>
+#include <io.h>
+#include <vector>
+#include <string>
 
 void fprintf_fscanf(const std::string& fileName)
 {
@@ -150,13 +153,13 @@ void fseek(const std::string& fileName)
 {
     FILE* file;
 
-    if (fopen_s(&file, fileName.c_str(), "a+") != 0)
+    if (fopen_s(&file, fileName.c_str(), "r+") != 0)
     {
         std::cout << "Error while opening the file '" << fileName << "'. 0_o";
         return;
     }
 
-    fseek(file, 0, SEEK_SET);
+    //fseek(file, 0, SEEK_SET);
 
     int symbol;
     while ((symbol = fgetc(file)) != EOF)
@@ -165,6 +168,8 @@ void fseek(const std::string& fileName)
         {
             fseek(file, -1, SEEK_CUR);
             fputc('_', file);
+
+            fflush(file); // (!)
         }
     }
 
@@ -172,14 +177,114 @@ void fseek(const std::string& fileName)
 }
 
 
+int fpeek(FILE* stream)
+{
+    int symlol;
+    symlol = fgetc(stream);
+    ungetc(symlol, stream);
+
+    return symlol;
+}
+
+void fwrite_fread(const std::string& fileName)
+{
+    FILE* file;
+
+    if (fopen_s(&file, fileName.c_str(), "wb") != 0)
+    {
+        std::cout << "Error while opening the file '" << fileName << "'. 0_o";
+        return;
+    }
+
+    struct Cat
+    {
+        char name[50];
+        int age;
+    };
+
+    Cat jack{ "Jack", 3 };
+    Cat lucky{ "Lucky", 5 };
+    Cat lusy{ "Lusy", 4 };
+    
+    Cat cats[3]{ jack, lucky, lusy };
+
+    for (const auto& c : cats)
+    {
+        fwrite(c.name, sizeof(c.name), 1, file);
+        fwrite(&c.age, sizeof(c.age), 1, file);
+    }
+
+    fclose(file);
+
+
+    if (fopen_s(&file, fileName.c_str(), "rb") != 0)
+    {
+        std::cout << "Error while opening the file '" << fileName << "'. 0_o";
+        return;
+    }
+
+    std::vector<Cat> vCats;
+    while (::fpeek(file) != -1)
+    {
+        vCats.push_back(Cat{});
+        fread(vCats.back().name, sizeof(vCats.back().name), 1, file);
+        fread(&vCats.back().age, sizeof(vCats.back().age), 1, file);
+    }
+
+    fclose(file);
+
+    for (int i = 0; i < vCats.size(); i++)
+    {
+        std::cout << vCats[i].name << " - " << vCats[i].age << "\n";
+    }
+}
+
+
+void showDirectory(const std::string& directory)
+{
+    std::string mask;
+    std::cout << "Enter the file name or mask aka '*.' or '*.txt' that you want to search:\n";
+    std::getline(std::cin, mask);
+    std::string fullPath = directory + mask; // for example C:/myDir/*.txt
+
+    _finddata_t fileInfo;
+    
+    intptr_t done = _findfirst64i32(fullPath.c_str(), &fileInfo);
+    if (done == -1)
+    {
+        std::cout << "There are no files in the directory\n\n";
+        return;
+    }
+
+    do
+    {
+        std::cout << fileInfo.name << "\n";
+        std::cout << fileInfo.size << "\n";
+        std::cout << fileInfo.time_access << "\n";
+        std::cout << fileInfo.attrib << "\n";
+        std::cout << fileInfo.time_create << "\n";
+        std::cout << fileInfo.time_write << "\n\n";
+    } 
+    while (_findnext64i32(done, &fileInfo) == 0);
+
+    _findclose(done);
+
+    std::cout << "=======================================\n\n\n";
+}
+
+
 
 int main()
 {
     std::string fileName = "Example.txt";
+    std::string binaryFileName = "Binary.bin";
 
     //fprintf_fscanf(fileName);
     //fgetc_gputc(fileName);
-    fgets_gputs(fileName);
-    fseek(fileName);
-}
+    //fgets_gputs(fileName);
+    //fseek(fileName);
 
+    //fwrite_fread(binaryFileName);
+
+    showDirectory("D:/STEP/Cpp Meetings/V10_0/FundamentalsCpp_38Hours/meeting16_17_FileSystem/");
+}

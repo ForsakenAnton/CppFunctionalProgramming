@@ -22,4 +22,9 @@
   <ItemGroup>
     <Text Include="Example.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Binary.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>
