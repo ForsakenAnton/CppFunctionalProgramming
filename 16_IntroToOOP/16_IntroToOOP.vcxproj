@@ -127,7 +127,9 @@
     <ClCompile Include="Elevator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Manufacturer.h" />
     <ClInclude Include="Elevator.h" />
+    <ClInclude Include="Product.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
