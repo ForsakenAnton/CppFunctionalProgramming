@@ -187,6 +187,14 @@ const Number Number::operator-- (int)
 	return temporaryObj;
 }
 
+Number& Number::operator=(const Number& number)
+{
+	this->value = number.value;
+	this->valueString = number.valueString;
+
+	return *this;
+}
+
 
 // Friend Examples ////////////////////////////////////////////////////////////////
 //Number operator+ (const Number& left, const Number& right)
@@ -194,3 +202,23 @@ const Number Number::operator-- (int)
 //	return Number{ left.value + right.value };
 //}
 ///////////////////////////////////////////////////////////////////////////////////
+
+// friend
+std::ostream& operator<<(std::ostream& out, const Number& number)
+{
+	out << "Value: " << number.value << "\n";
+	out << "ValueString: " << number.valueString << "\n";
+
+	return out;
+}
+
+std::istream& operator>>(std::istream& in, Number& number)
+{
+	double value;
+	std::cout << "Enter the value: ";
+	in >> value;
+
+	number.setValue(value);
+
+	return in;
+}

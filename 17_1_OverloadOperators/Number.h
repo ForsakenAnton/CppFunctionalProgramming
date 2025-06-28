@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 class Number
 {
@@ -58,6 +59,11 @@ public:
 	const Number operator++ (int _);
 	const Number operator-- (int _);
 
+	Number& operator= (const Number& number);
+
+
+	friend std::ostream& operator<< (std::ostream& out, const Number& number);
+	friend std::istream& operator>> (std::istream& in, Number& number);
 
 	// Friend Examples ////////////////////////////////////////////////////////////////
 	//friend Number operator+ (const Number& left, const Number& right);
