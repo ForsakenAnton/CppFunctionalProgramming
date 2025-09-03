@@ -128,6 +128,7 @@
     <ClCompile Include="NumberArray.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MyClass.h" />
     <ClInclude Include="Number.h" />
     <ClInclude Include="NumberArray.h" />
     <ClInclude Include="Point2D.h" />

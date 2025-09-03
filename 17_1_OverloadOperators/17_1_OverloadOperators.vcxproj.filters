@@ -35,5 +35,8 @@
     <ClInclude Include="NumberArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MyClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

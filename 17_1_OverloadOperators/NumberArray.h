@@ -16,7 +16,8 @@ private:
 
 public:
 	explicit NumberArray(int numbersSize);
-	NumberArray(const NumberArray& numberArr);
+	NumberArray(const NumberArray& numberArr); // Copy ctor
+	NumberArray(NumberArray&& numberArr) noexcept; // Move ctor
 	~NumberArray();
 
 	int getNumbersSize() const;

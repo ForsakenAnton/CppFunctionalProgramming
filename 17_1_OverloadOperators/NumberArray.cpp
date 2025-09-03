@@ -37,6 +37,17 @@ NumberArray::NumberArray(const NumberArray& numberArr) :
 	}
 }
 
+// Move ctor
+NumberArray::NumberArray(NumberArray&& numberArr) noexcept :
+	numbersSize{ numberArr.numbersSize },
+	pNumbers{ numberArr.pNumbers },
+	vNumbers{ numberArr.vNumbers }
+{
+	numberArr.numbersSize = 0;
+	numberArr.pNumbers = nullptr;
+	numberArr.vNumbers.clear();
+}
+
 
 
 NumberArray::~NumberArray()
