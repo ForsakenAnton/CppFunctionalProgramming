@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2c84849c-7dc5-4fc3-9dbc-745e7d11a0eb}</ProjectGuid>
-    <RootNamespace>My231DynamicPolymorphism</RootNamespace>
+    <ProjectGuid>{c2fcde5d-619d-4618-818f-a94584d536c7}</ProjectGuid>
+    <RootNamespace>My232PureVirtual</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -102,6 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,13 +124,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="23_1_DynamicPolymorphism.cpp" />
+    <ClCompile Include="23_2_PureVirtual.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Example.h" />
-    <ClInclude Include="VirtualDestructors.h" />
-    <ClInclude Include="VirtualOverride.h" />
-    <ClInclude Include="VirtualOverride_2.h" />
+    <ClInclude Include="PureAbstractClass.h" />
+    <ClInclude Include="PureVirtualMethods.h" />
+    <ClInclude Include="StlInheritance.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

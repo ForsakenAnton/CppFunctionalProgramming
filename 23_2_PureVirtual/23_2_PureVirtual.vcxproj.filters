@@ -15,21 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="23_1_DynamicPolymorphism.cpp">
+    <ClCompile Include="23_2_PureVirtual.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="VirtualOverride.h">
+    <ClInclude Include="PureVirtualMethods.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VirtualOverride_2.h">
+    <ClInclude Include="PureAbstractClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VirtualDestructors.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Example.h">
+    <ClInclude Include="StlInheritance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

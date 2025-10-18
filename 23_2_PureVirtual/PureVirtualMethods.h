@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
+#include <vector>
 
-class Animal
+class Animal abstract
 {
 protected:
 	std::string name;
@@ -11,13 +12,15 @@ public:
 	{
 	}
 
-	virtual void makeSound() const
-	{
-		std::cout << "Animal with '" << name << "' makes some sound...\n";
-	}
+	virtual void makeSound() const = 0; // pure virtual | abstract method
 };
 
-class Cat : public Animal
+void Animal::makeSound() const
+{
+	std::cout << "Default behavior...\n\n";
+}
+
+class Cat final : public Animal
 {
 public:
 	std::string catDescription = "This is a cat";
@@ -28,9 +31,20 @@ public:
 
 	void makeSound() const override
 	{
+		Animal::makeSound();
 		std::cout << "Cat with'" << name << "' makes meow...\n";
 	}
+
+	virtual void info()
+	{
+		// ...
+	}
 };
+
+//class MaineCoon : public Cat
+//{
+//
+//};
 
 class Dog : public Animal
 {
@@ -43,33 +57,31 @@ public:
 
 	void makeSound() const override
 	{
-		std::cout << "Dog with'" << name << "' makes meow...\n";
+		std::cout << "Dog with'" << name << "' makes woof...\n";
 	}
 };
 
-void printAnimalDescription(const Animal* animal)
+class Raccoon : public Animal
 {
-	const Cat* cat = dynamic_cast<const Cat*>(animal);
-	const Dog* dog = dynamic_cast<const Dog*>(animal);
+public:
+	explicit Raccoon(const std::string& name) : Animal{ name }
+	{
 
-	if (cat != nullptr)
-	{
-		std::cout << "Desc: " << cat->catDescription << "\n";
 	}
-	else if (dog != nullptr)
+
+	void makeSound() const override
 	{
-		std::cout << "Desc: " << dog->dogDescription << "\n";
+		std::cout << "Racoon with'" << name << "' makes hrrrrrrrr...\n";
 	}
-	else
-	{
-		std::cout << "There are neither cat or dog\n";
-	}
-}
+};
 
 
-void virtualOverride_2()
+void pureVirtualMethods()
 {
 	Cat* cat = new Cat{ "Tom" }; // Cat
+
+	//Animal a{ "qwety" };
+	//a.makeSound()
 
 	Animal* animal = cat; // // uppercasting. Ok, Cat is animal
 	cat->makeSound(); // meow
@@ -87,9 +99,9 @@ void virtualOverride_2()
 		catFromAnimal->makeSound();
 		anotherCatFromAnimal->makeSound();
 
-		Animal* uknownAnimal = new Animal{ "Unknown" };
-		Cat* catFromUnknownAnimal = (Cat*)uknownAnimal; // Animal is cat, but it's not true !!!
-		catFromUnknownAnimal->makeSound();
+		//Animal* uknownAnimal = new Animal{ "Unknown" };
+		//Cat* catFromUnknownAnimal = (Cat*)uknownAnimal; // Animal is cat, but it's not true !!!
+		//catFromUnknownAnimal->makeSound();
 
 		Animal* dogAnimal = new Dog{ "Jack" };
 		Cat* catFromDogAnumal = (Cat*)dogAnimal; // Animal is cat, but it's a dog !!!
@@ -103,12 +115,12 @@ void virtualOverride_2()
 		catFromAnimal->makeSound();
 		anotherCatFromAnimal->makeSound();
 
-		Animal* uknownAnimal = new Animal{ "Unknown" };
-		Cat* catFromUnknownAnimal = dynamic_cast<Cat*>(uknownAnimal); // Animal is cat, but it's not true !!! Result is nullptr
-		if (catFromUnknownAnimal != nullptr)
-		{
-			catFromUnknownAnimal->makeSound();
-		}
+		//Animal* uknownAnimal = new Animal{ "Unknown" };
+		//Cat* catFromUnknownAnimal = dynamic_cast<Cat*>(uknownAnimal); // Animal is cat, but it's not true !!! Result is nullptr
+		//if (catFromUnknownAnimal != nullptr)
+		//{
+		//	catFromUnknownAnimal->makeSound();
+		//}
 
 		Animal* dogAnimal = new Dog{ "Jack" };
 		Cat* catFromDogAnimal = dynamic_cast<Cat*>(dogAnimal); // Animal is cat, but it's a dog !!! Result is nullptr
@@ -118,17 +130,10 @@ void virtualOverride_2()
 		}
 
 
-		Cat c{" CatName "};
+		Cat c{ " CatName " };
 		//Animal a = c; slicing
 		Animal* a = &c; // uppercasting
 		a->makeSound(); // meow
-
-		printAnimalDescription(catFromAnimal);
-		printAnimalDescription(anotherCatFromAnimal);
-		printAnimalDescription(uknownAnimal);
-		printAnimalDescription(catFromUnknownAnimal);
-		printAnimalDescription(dogAnimal);
-		printAnimalDescription(catFromDogAnimal);
 	}
 
 	// references with dynamic polymorphism
@@ -145,5 +150,24 @@ void virtualOverride_2()
 		//Dog dogFromCat = dynamic_cast<Dog&>(refTom); // runtime error (std::bad_cast)
 		//dogFromCat.makeSound();
 		//std::cout << dogFromCat.dogDescription << "\n";
+	}
+
+
+	{
+		//Cat cat{ "Tom" };
+		//Animal a = cat;
+		//a = cat;
+
+		Raccoon r{ "some name" };
+
+		std::vector<Animal*> v;
+		v.emplace_back(new Cat{ "Tom" });
+		v.push_back(new Dog{ "Jack" });
+		v.push_back(new Raccoon{ "lucy" });
+
+		for (const auto& el : v)
+		{
+			el->makeSound();
+		}
 	}
 }
