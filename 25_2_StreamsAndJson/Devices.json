@@ -1,0 +1,56 @@
+[
+    {
+        "accessories": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f"
+        ],
+        "company": {
+            "name": "Qwerty Company"
+        },
+        "name": "Qwerty",
+        "price": 123.12000274658203
+    },
+    {
+        "accessories": [
+            "7",
+            "8",
+            "9"
+        ],
+        "company": {
+            "name": "sSRSHRH"
+        },
+        "name": "new",
+        "price": 666.0
+    },
+    {
+        "accessories": [
+            "1",
+            "2",
+            "3"
+        ],
+        "company": {
+            "name": "Qwerty 2 company"
+        },
+        "name": "qwerty 2",
+        "price": 456.45001220703125
+    },
+    {
+        "accessories": [
+            "q",
+            "w",
+            "e",
+            "r",
+            "t",
+            "y"
+        ],
+        "company": {
+            "name": "qwerty"
+        },
+        "name": "new device",
+        "price": 123.0
+    }
+]
