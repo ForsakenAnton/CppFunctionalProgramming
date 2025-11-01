@@ -97,6 +97,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "26_1_Map_Multimap", "26_1_M
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "26_2_StlLib", "26_2_StlLib\26_2_StlLib.vcxproj", "{D2087685-2F6E-4C34-86DE-D538AA6336D7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "27_SmartPointers_Lambdas", "27_SmartPointers_Lambdas\27_SmartPointers_Lambdas.vcxproj", "{14ED100F-A8DB-4323-A3A8-3654028D2799}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -671,6 +673,18 @@ Global
 		{D2087685-2F6E-4C34-86DE-D538AA6336D7}.Release|x64.Build.0 = Release|x64
 		{D2087685-2F6E-4C34-86DE-D538AA6336D7}.Release|x86.ActiveCfg = Release|Win32
 		{D2087685-2F6E-4C34-86DE-D538AA6336D7}.Release|x86.Build.0 = Release|Win32
+		{14ED100F-A8DB-4323-A3A8-3654028D2799}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{14ED100F-A8DB-4323-A3A8-3654028D2799}.Debug|Any CPU.Build.0 = Debug|x64
+		{14ED100F-A8DB-4323-A3A8-3654028D2799}.Debug|x64.ActiveCfg = Debug|x64
+		{14ED100F-A8DB-4323-A3A8-3654028D2799}.Debug|x64.Build.0 = Debug|x64
+		{14ED100F-A8DB-4323-A3A8-3654028D2799}.Debug|x86.ActiveCfg = Debug|Win32
+		{14ED100F-A8DB-4323-A3A8-3654028D2799}.Debug|x86.Build.0 = Debug|Win32
+		{14ED100F-A8DB-4323-A3A8-3654028D2799}.Release|Any CPU.ActiveCfg = Release|x64
+		{14ED100F-A8DB-4323-A3A8-3654028D2799}.Release|Any CPU.Build.0 = Release|x64
+		{14ED100F-A8DB-4323-A3A8-3654028D2799}.Release|x64.ActiveCfg = Release|x64
+		{14ED100F-A8DB-4323-A3A8-3654028D2799}.Release|x64.Build.0 = Release|x64
+		{14ED100F-A8DB-4323-A3A8-3654028D2799}.Release|x86.ActiveCfg = Release|Win32
+		{14ED100F-A8DB-4323-A3A8-3654028D2799}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
